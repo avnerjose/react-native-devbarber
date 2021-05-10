@@ -6,7 +6,8 @@ import Api from '../../Api';
 import {useNavigation} from '@react-navigation/native';
 import SearchIcon from '../../assets/search.svg';
 import MyLocationIcon from '../../assets/my_location.svg';
-import BarberItem from '../../components/BarberItem';
+import BarberItem, {BarberData} from '../../components/BarberItem';
+
 import {
   Container,
   Scroller,
@@ -29,14 +30,14 @@ export default function Home() {
   const [locationText, setLocationText] = useState('');
   const [coords, setCoords] = useState({} as any);
   const [loading, setLoading] = useState(false);
-  const [list, setList] = useState([]);
+  const [list, setList] = useState<Array<BarberData>>([]);
   const [refreshing, setRefreshing] = useState(false);
 
   const navigation = useNavigation();
 
   const handleLocationFinder = async () => {
     setCoords({});
-    
+
     let result = await request(
       Platform.OS === 'ios'
         ? PERMISSIONS.IOS.LOCATION_WHEN_IN_USE
@@ -133,8 +134,8 @@ export default function Home() {
 
         {loading && <LoadingIcon size="large" color="#FFf" />}
         <ListArea>
-          {list.map((item, k) => (
-            <BarberItem key={k} data={item} />
+          {list.map((item, key) => (
+            <BarberItem key={key} data={item} />
           ))}
         </ListArea>
       </Scroller>

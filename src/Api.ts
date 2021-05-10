@@ -48,14 +48,84 @@ export default {
     return json;
   },
 
+  logout: async () => {
+    const token = await AsyncStorage.getItem('token');
+    const req = await fetch(`${BASE_API}/auth/logout`, {
+      method: 'POST',
+      headers: {Accept: 'application/json', 'Content-Type': 'application/json'},
+      body: JSON.stringify(token),
+    });
+    const json = await req.json();
+
+    return json;
+  },
+
   getBarbers: async (lat?: string, lng?: string, address?: string) => {
     const token = await AsyncStorage.getItem('token');
-
-    console.log(address);
 
     const req = await fetch(
       `${BASE_API}/barbers?token=${token}&lat=${lat}&lng=${lng}&address=${address}`,
     );
+    const json = await req.json();
+
+    return json;
+  },
+
+  getBarber: async (id: number) => {
+    const token = await AsyncStorage.getItem('token');
+    const req = await fetch(`${BASE_API}/barber/${id}?token=${token}`);
+
+    const json = await req.json();
+
+    return json;
+  },
+
+  getFavorites: async () => {
+    const token = await AsyncStorage.getItem('token');
+    const req = await fetch(`${BASE_API}/user/favorites?token=${token}`);
+
+    const json = await req.json();
+
+    return json;
+  },
+
+  setFavorite: async (barberId: number) => {
+    const token = await AsyncStorage.getItem('token');
+    const req = await fetch(`${BASE_API}/user/favorite?token=${token}`, {
+      method: 'POST',
+      headers: {Accept: 'application/json', 'Content-Type': 'application/json'},
+      body: JSON.stringify({barber: barberId}),
+    });
+    const json = await req.json();
+
+    return json;
+  },
+
+  setAppointment: async (
+    barberId: number,
+    service: number,
+    selectedYear: number,
+    selectedMonth: number,
+    selectedDay: number,
+    selectedHour: string,
+  ) => {
+    const token = await AsyncStorage.getItem('token');
+    const req = await fetch(`${BASE_API}/user/appointment`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        token,
+        id: barberId,
+        service,
+        year: selectedYear,
+        month: selectedMonth,
+        day: selectedDay,
+        hour: selectedHour,
+      }),
+    });
     const json = await req.json();
 
     return json;
