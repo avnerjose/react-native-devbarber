@@ -29,7 +29,12 @@ This code was developed based on a project created by Bonieky Lacerda.
 ```bash
 git clone https://github.com/avnerjose/react-native-devbarber.git
 ```
-2. Run your mobile emulator (AndroidStudio or MacOs)
+2. Install all dependencies
+
+```bash
+  yarn
+```
+4. Run your mobile emulator (AndroidStudio or MacOs)
 
 3. Go to the folder you cloned the repository and install the app
 ```base
