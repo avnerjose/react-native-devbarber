@@ -1,6 +1,4 @@
-<p align="center">
-  <img width="120" src="src/assets/barber.svg"/> 
-</p>
+# DevBarber - ReactNative
 <p align="center">
 <img src="devbarber.gif" /> 
 </p>
