@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="public/logo-full.svg"/> 
+  <img src="src/assets/barber.svg"/> 
 </p>
 
-<img src="repo/nlw4.gif" /> 
+<img src="devbarber.gif" /> 
 
 This project was developed during the fourth edition of the online event called [NextLeveLWeek](https://nextlevelweek.com) ministred by [RocketSeat](https://github.com/Rocketseat)
 
