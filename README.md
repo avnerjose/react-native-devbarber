@@ -9,6 +9,7 @@ This code was developed based on a project created by Bonieky Lacerda.
   
 ## Features
  - Async Storage
+ - GeoLocation
  - Login/Register using JWT token
  - Dinamic lists based on API data
  - API Conection via fetch
