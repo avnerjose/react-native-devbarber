@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="20px" height="20px" src="src/assets/barber.svg"/> 
+  <img width="20" height="20" src="src/assets/barber.svg"/> 
 </p>
 
 <img src="devbarber.gif" /> 
