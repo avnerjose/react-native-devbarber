@@ -7,7 +7,7 @@ This code was developed based on a project created by Bonieky Lacerda.
 ## ⚡️ The Project
   The DevBarber project was designed to make people be able to find and schedule barber attendencies, you can find the barber that you want, select an especific service, and schedule a date and hour based on the barber's availability.
   
-## Features
+## 🎯 Features
  - Async Storage
  - GeoLocation
  - Login/Register using JWT token
