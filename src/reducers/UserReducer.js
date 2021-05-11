@@ -9,6 +9,10 @@ export const UserReducer = (state, action) => {
 
         case 'setAvatar':
             return { ...state, avatar: action.payload.avatar };
+        case 'setFavorites':
+            return { ...state, favorites: action.payload.favorites };
+        case 'setAppointments':
+            return { ...state, appointments: action.payload.appointments }
         default:
             return state;
 

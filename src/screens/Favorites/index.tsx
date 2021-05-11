@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import Api from '../../Api';
 import {useNavigation} from '@react-navigation/native';
 import {RefreshControl} from 'react-native';
@@ -12,6 +12,7 @@ import {
   LoadingIcon,
   Scroller,
 } from './styles';
+import { UserContext } from '../../contexts/UserContext';
 
 export default function Favorites() {
   const navigation = useNavigation();
@@ -20,12 +21,20 @@ export default function Favorites() {
   const [loading, setLoading] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
 
+  const {dispatch: userDispatch} = useContext(UserContext);
+
   const loadFavorites = async () => {
     setLoading(true);
     let res = await Api.getFavorites();
 
     if (res.error === '') {
       setBarberList(res.list);
+      userDispatch({
+        type: 'setFavorites',
+        payload: {
+          appointments: res.list,
+        },
+      });
     } else {
       console.log('Erro: ' + res.error);
     }
