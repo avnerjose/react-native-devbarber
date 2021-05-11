@@ -1,9 +1,9 @@
 <p align="center">
-  <img width="20" height="20" src="src/assets/barber.svg"/> 
+  <img width="120" src="src/assets/barber.svg"/> 
 </p>
-
+<p align="center">
 <img src="devbarber.gif" /> 
-
+</p>
 This project was developed during the fourth edition of the online event called [NextLeveLWeek](https://nextlevelweek.com) ministred by [RocketSeat](https://github.com/Rocketseat)
 
 ## ⚡️ The Project
